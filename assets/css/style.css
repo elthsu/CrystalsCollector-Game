@@ -1,5 +1,5 @@
 *	{
-	font-family: "News Gothic", sans-serif:;
+	font-family: "News Gothic", sans-serif;
 	box-sizing: border-box;
 
 }
@@ -22,6 +22,21 @@ body {
 	background-color: black;
 }
 
+#heroName{
+
+	color: green;
+}
+
+#enemyName {
+
+	color: red;
+}
+
+.bottom-panel {
+
+	position: relative;
+	height: 500px;
+}
 
 .hero-button {
 
@@ -63,5 +78,28 @@ body {
 	padding: 10px;
 	margin: 5px;
 	font-size: x-small;
+	clear: both;
 
+}
+
+#vs {
+	
+	color: #e5b13a;
+	margin-left: 55px;
+}
+
+.btn-danger {
+
+	display: none;
+	position: absolute;
+    top: 38%;
+    left: 41%;
+    width: 200px;
+
+}
+
+#attack {
+
+	margin: 0;
+	padding: 10px 0;
 }

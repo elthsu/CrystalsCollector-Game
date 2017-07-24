@@ -14,6 +14,7 @@ $(document).ready(function(){
 
     var sound = document.getElementById("audio");
     var hero;
+    var selection;
     var fx;
     var counter = 0;
     
@@ -30,39 +31,59 @@ $(document).ready(function(){
     function redirectHandler() {
     window.location = "gamemain.html";
     
-    }
+    };
 
     audio.addEventListener('ended', redirectHandler, false);
 
     function scrollWin() {
     window.scrollTo(0, 1000);
-    }
+    };
 
 
-    function obiTalk () {
+    function obiTalk() {
     fx = new Audio();
     fx.src = "assets/sounds/disturbance_force.wav";
     fx.play();
-    }
+   
+    };
 
-    function lukeTalk () {
+    function lukeTalk() {
     fx = new Audio();
     fx.src = "assets/sounds/luke.ogg";
     fx.play();
-    }
+    };
 
-    function sidiousTalk () {
+    function sidiousTalk() {
     fx = new Audio();
-    fx.src = "assets/sounds/disturbance_force.wav";
+    fx.src = "assets/sounds/destiny.mp3";
     fx.play();
-    }
+    };
 
-    function maulTalk () {
+    function maulTalk() {
     fx = new Audio();
-    fx.src = "assets/sounds/disturbance_force.wav";
+    fx.src = "assets/sounds/revenge.mp3";
     fx.play();
-    }
+    };
 
+    function heroSelect() {
+
+        $("#heroName").html("Player: " + hero); 
+        $("#selectedHero").css({"border": "4px solid green", "border-radius": "10px"});   
+        $(selection).css({"background-color": "green", "opacity": "0.5", "color": "lightgrey"});
+        $(selection).prop("disabled",true);
+        counter++;
+        $("#vs").text("Versus");
+    };
+
+    function enemySelect() {
+
+        $("#enemyName").text("Enemy: " + hero);
+        $(".hero-button").prop("disabled",true);
+        $("#selectedEnemy").css({"border": "4px solid red", "border-radius": "10px"});
+        $(".btn-danger").css("display", "inline")
+        $("#attack").text("Attack");
+
+    };
 
         
     
@@ -72,106 +93,92 @@ $(document).ready(function(){
     $(".btn").on("click", function () {
         
         hero = $(this).val();
+        selection = this;
         
-        if (hero === "obiwan" && counter === 0) {
+        if (hero === "Obi-Wan Kenobi" && counter === 0) {
         
-        $("#heroName").html("Obi-Wan Kenobi");
-        $("#selectedHero").attr({"src": "assets/images/obiwan.jpg", "width": "200"});
-        $(this).css({"background-color": "green", "opacity": "0.5", "color": "lightgrey"});
-        $(this).prop("disabled",true);
+        heroSelect();
         obiTalk();
-        console.log("works")
-        console.log(hero);
-        console.log(counter);
-        $("[value=luke]").css({"background-color": "red", "color": "white"});
-        $("[value=sidious]").css({"background-color": "red", "color": "white"});
-        $("[value=maul]").css({"background-color": "red", "color": "white"});
-        counter++;
+        $("#selectedHero").attr({"src": "assets/images/obiwan.jpg", "width": "200"});
+        $("[value='Luke Skywalker']").css({"background-color": "red", "color": "white"});
+        $("[value='Darth Sidious']").css({"background-color": "red", "color": "white"});
+        $("[value='Darth Maul']").css({"background-color": "red", "color": "white"});
+        
         scrollWin();
         }
 
-        else if (hero === "obiwan" && counter >= 1) {
+        else if (hero === "Obi-Wan Kenobi" && counter >= 1) {
 
-            $("#enemyName").text("Obi-Wan Kenobi");
+            enemySelect();
             $("#selectedEnemy").attr({"src": "assets/images/obiwan.jpg", "width": "200"});
-            $(".hero-button").prop("disabled",true);
+            obiTalk();
             scrollWin();
+            
         }
        
 
-        if (hero === "luke" && counter === 0) {
-        $("#heroName").text("Luke Skywalker");
+        if (hero === "Luke Skywalker" && counter === 0) {
+        
+        heroSelect();
+        lukeTalk();
+
         $("#selectedHero").attr({"src": "assets/images/luke.png", "width": "200"});
-        $(this).css({"background-color": "green", "opacity": "0.5", "color": "lightgrey"});
-        $(this).prop("disabled",true);
-        console.log("works")
-        console.log(hero);
-        $("[value=obiwan]").css({"background-color": "red", "color": "white"});
-        $("[value=sidious]").css({"background-color": "red", "color": "white"});
-        $("[value=maul]").css({"background-color": "red", "color": "white"});
-        counter++;
+        $("[value='Obi-Wan Kenobi']").css({"background-color": "red", "color": "white"});
+        $("[value='Darth Sidious']").css({"background-color": "red", "color": "white"});
+        $("[value='Darth Maul']").css({"background-color": "red", "color": "white"});
         scrollWin();
         }
 
-        else if (hero === "luke" && counter >= 1) {
-            console.log(counter);
-            $("#enemyName").text("Luke Skywalker");
+        else if (hero === "Luke Skywalker" && counter >= 1) {
+            
+            enemySelect();
             $("#selectedEnemy").attr({"src": "assets/images/luke.png", "width": "200"});
-            $(".hero-button").prop("disabled",true);
+            lukeTalk();
             scrollWin();
+            
         }
         
 
         
-        if (hero === "sidious" && counter === 0) {
-        $("#heroName").text("Darth Sidious");
-        $("#selectedHero").attr({"src": "assets/images/sidious.png", "width": "200"});
-        $(this).css({"background-color": "green", "opacity": "0.5", "color": "lightgrey"});
-        $(this).prop("disabled",true);
-        fx = new Audio();
-        fx.src = "assets/sounds/destiny.mp3";
-        fx.volume = 0.6;
-        fx.play();
-        console.log("works")
-        console.log(hero);
-        $("[value=luke]").css({"background-color": "red", "color": "white"});
-        $("[value=obiwan]").css({"background-color": "red", "color": "white"});
-        $("[value=maul]").css({"background-color": "red", "color": "white"});
-        counter++;
+        if (hero === "Darth Sidious" && counter === 0) {
+        
+        heroSelect();
+        sidiousTalk();
+
+        $("#selectedHero").attr({"src": "assets/images/sidious.png", "width": "200"});  
+        $("[value='Luke Skywalker']").css({"background-color": "red", "color": "white"});
+        $("[value='Obi-Wan Kenobi']").css({"background-color": "red", "color": "white"});
+        $("[value='Darth Maul']").css({"background-color": "red", "color": "white"});
         scrollWin();
         }
 
-        else if (hero === "sidious" && counter >= 1) {
+        else if (hero === "Darth Sidious" && counter >= 1) {
 
-            $("#enemyName").text("Darth Sidious");
+            enemySelect();
             $("#selectedEnemy").attr({"src": "assets/images/sidious.png", "width": "200"});
-            $(".hero-button").prop("disabled",true);
+            sidiousTalk();
             scrollWin();
     
         }
         
-        if (hero === "maul" && counter === 0) {
-        $("#heroName").text("Darth Maul");
+        if (hero === "Darth Maul" && counter === 0) {
+        
+        heroSelect();
+        maulTalk();
+
         $("#selectedHero").attr({"src": "assets/images/maul.jpeg", "width": "200"});
-        $$(this).css({"background-color": "green", "opacity": "0.5", "color": "lightgrey"});
-        $(this).prop("disabled",true);
-        fx = new Audio();
-        fx.src = "assets/sounds/revenge.mp3";
-        fx.play();
-        console.log("works")
-        console.log(hero);
-        $("[value=luke]").css({"background-color": "red", "color": "white"});
-        $("[value=sidious]").css({"background-color": "red", "color": "white"});
-        $("[value=obiwan]").css({"background-color": "red", "color": "white"});
-        counter++;
+        $("[value='Luke Skywalker']").css({"background-color": "red", "color": "white"});
+        $("[value='Darth Sidious']").css({"background-color": "red", "color": "white"});
+        $("[value='Obi-Wan Kenobi']").css({"background-color": "red", "color": "white"});
         scrollWin();
         }
 
-        else if (hero === "maul" && counter >= 1) {
+        else if (hero === "Darth Maul" && counter >= 1) {
 
-            $("#enemyName").text("Darth Maul");
+            enemySelect();
             $("#selectedEnemy").attr({"src": "assets/images/maul.jpeg", "width": "200"});
-            $(".hero-button").prop("disabled",true);
+            maulTalk();
+            scrollWin();
         }
 
         if (hero === "clear") {
