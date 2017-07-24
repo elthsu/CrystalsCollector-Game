@@ -1,0 +1,67 @@
+*	{
+	font-family: "News Gothic", sans-serif:;
+	box-sizing: border-box;
+
+}
+
+audio {
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	
+	
+}
+
+body {
+
+	background-image: url("http://cdn.wonderfulengineering.com/wp-content/uploads/2014/09/star-wars-wallpaper-41.jpg");
+	background-repeat: no-repeat;
+	color: #e5b13a;
+	background-color: black;
+}
+
+
+.hero-button {
+
+	height: 270px;
+	padding: 0 26px;
+	margin: 10px;
+}
+
+#herolist {
+
+	text-align: center;
+}
+
+.jumbotron	{
+
+	position: relative;
+	color: #e5b13a;
+	background-color: black;
+}
+
+#launchpage {
+	
+	color: #e5b13a;
+	background-color: black;
+
+}
+
+
+#launchbutton {
+	
+	color: #e5b13a;
+	background-color: black;
+	border: 4px solid #e5b13a;
+
+}
+
+.clear {
+	
+	padding: 10px;
+	margin: 5px;
+	font-size: x-small;
+
+}

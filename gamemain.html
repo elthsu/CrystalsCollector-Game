@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Star Wars Game</title>
+
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.js"> -->
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <script type="text/javascript" src="assets/javascript/game.js">
+    </script> 
+    
+    <audio controls autoplay loop id="duel">
+    <source src="assets/sounds/duel.mp3" type="audio/mpeg">
+    </audio>
+
+    
+</head>
+<body>
+
+<!-- Jumbotron for Title -->
+<div class="jumbotron">
+    <h1 class="text-center">Star Wars Game</h1>
+    <h3 class="text-center">Battle Foes to Rule the Galaxy!</h3>
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+        <!-- Calculator Panel -->
+        <div class="col-lg-12 text-center">
+            
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" id="herolist">List of Heroes</h3>
+                </div>
+
+                <div class="panel-body">
+                    <button class="btn btn-default hero-button" value="obiwan">
+                        <h3 class="heroname">Obi-Wan Kenobi</h3>
+                        <img src="assets/images/obiwan.jpg" width="200" class="heroimg"/>
+                        <h3 class="herohp">HP: 120</h3>
+                    </button>
+        
+                    <button class="btn btn-default hero-button" value="luke">
+                        <h3 class="heroname">Luke Skywalker</h3>
+                        <img src="assets/images/luke.png" width="200" />
+                        <h3 class="herohp">HP: 100</h3>
+                    </button>
+                
+                    <button class="btn btn-default hero-button" value="sidious">
+                        <h3 class="heroname">Darth Sidious</h3>
+                        <img src="assets/images/sidious.png" width="200" />
+                        <h3 class="herohp">HP: 150</h3>
+                    </button>
+               
+                    <button class="btn btn-default hero-button" value="maul">
+                        <h3 class="heroname">Darth Maul</h3>
+                        <img src="assets/images/maul.jpeg" width="200" />
+                        <h3 class="herohp">HP: 180</h3>
+                    </button>
+          
+                    <button id="button-clear" class="btn btn-default clear" value="clear"><h3>Reset</h3></button>
+                    </div>
+
+                </div>
+        </div>
+        </div>
+    
+    <div class="row">
+
+        <!-- Result Panel -->
+        <div class="col-lg-12 text-center">
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Result</h3>
+                </div>
+                <div class="panel-body">
+                    <img id="selectedHero" src="" />
+                    <h1 id="heroName"></h1>
+                    <h1 id="operator">Versus</h1>
+                    <img id="selectedEnemy" src="" />
+                    <h1 id="enemyName"></h1>
+                    <hr>
+                    <h1 id="result"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    var audio = document.getElementById("duel");
+    audio.volume = 0.3;
+</script>
+
+
+</body>
+</html>
