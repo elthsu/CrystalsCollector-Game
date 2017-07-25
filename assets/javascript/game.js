@@ -112,56 +112,13 @@
             
             $(".popContainer").empty();
             
-            if (counter === 1) {
-                
-                console.log("1hero" + hero);
-                console.log("player1" + player1);
-                console.log("prevHero" + prevHero);
-
+    
             $(".hero-button").prop("disabled",false)
             $("[value=hero]").prop("disabled",true);
 
             };
-            
-            if (counter === 2) {
-                console.log("2hero" + hero);
-                console.log("player1" + player1);
-                console.log("prevHero" + prevHero);
-
-            $("[value=player1]").prop("disabled",true);
-            $("[value=hero]").prop("disabled",true);
-
-            }
-
-            if (counter === 3)  {
-            
-                console.log("3hero" + hero);
-                console.log("player1" + player1);
-                console.log("prevHero" + prevHero);
-
-            $(".hero-button").prop("disabled",false);
-            
-            setTimeout( function(){
-            $("[value=player1]").prop("disabled",true);
-            $("[value=hero]").prop("disabled",true);
-            }, 100);
-            
-
-            }
-
-            if (counter === 4)  {
-            $(".hero-button").prop("disabled",false);
-            $("[value=player1]").prop("disabled",true);
-            $("[value=hero]").prop("disabled",true);
-            $("[value=prevHero]").prop("disabled",true);
-            }
-            
-            if (counter > 4) {
-            $(".hero-button").prop("disabled",true);
-            }
 
             
-
            $(selection).prop("disabled",true);
         
         }, 4000)};
