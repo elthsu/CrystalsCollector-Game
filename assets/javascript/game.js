@@ -116,7 +116,7 @@
             $(".hero-button").prop("disabled",false)
             $("[value=hero]").prop("disabled",true);
 
-            };
+            
 
             
            $(selection).prop("disabled",true);
