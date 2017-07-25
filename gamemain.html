@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Star Wars Game</title>
 
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.js"> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -12,6 +13,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <script type="text/javascript" src="assets/javascript/game.js">
     </script> 
@@ -46,25 +49,50 @@
                     <button class="btn btn-default hero-button" value="Obi-Wan Kenobi">
                         <h3 class="heroname">Obi-Wan Kenobi</h3>
                         <img src="assets/images/obiwan.jpg" width="205" class="heroimg"/>
-                        <h3 class="herohp">HP: 120</h3>
+                        
+                        <div class="iconwrapper">
+                            <h3 class="herohp"><img class="icons" id="heartIcons" src="assets/images/heart_black.png" width="24px" />: 120</h3>
+                            <h3 class="herohp"><img class="icons" src="assets/images/sword_black.png" width="24px" />: 8 - 10</h3>
+                            <h3 class="herohp"><img class="icons" src="assets/images/shield_black.png" width="24px" />: 4</h3>
+                        </div>
+                        
                     </button>
         
                     <button class="btn btn-default hero-button" value="Luke Skywalker">
                         <h3 class="heroname">Luke Skywalker</h3>
                         <img src="assets/images/luke.png" width="190" />
-                        <h3 class="herohp">HP: 100</h3>
+                        
+                        <div class="iconwrapper">
+                            <h3 class="herohp"><img class="icons" id="heartIcons" src="assets/images/heart_black.png" width="24px" />: 100</h3>
+                            <h3 class="herohp"><img class="icons" src="assets/images/sword_black.png" width="24px" />: 6 - 8</h3>
+                            <h3 class="herohp"><img class="icons" src="assets/images/shield_black.png" width="24px" />: 6</h3>
+                        </div>
+
                     </button>
                 
                     <button class="btn btn-default hero-button" value="Darth Sidious">
                         <h3 class="heroname">Darth Sidious</h3>
                         <img src="assets/images/sidious.png" width="190" />
-                        <h3 class="herohp">HP: 150</h3>
+                        
+                        <div class="iconwrapper">
+                            <h3 class="herohp"><img class="icons" id="heartIcons" src="assets/images/heart_black.png" width="24px" />: 150</h3>
+                            <h3 class="herohp"><img class="icons" src="assets/images/sword_black.png" width="24px" />: 10 - 13</h3>
+                            <h3 class="herohp"><img class="icons" src="assets/images/shield_black.png" width="24px" />: 0</h3>
+                        
+                        </div>
+
                     </button>
                
                     <button class="btn btn-default hero-button" value="Darth Maul">
                         <h3 class="heroname">Darth Maul</h3>
                         <img src="assets/images/maul.jpeg" width="205" />
-                        <h3 class="herohp">HP: 180</h3>
+                        
+                        <div class="iconwrapper">
+                            <h3 class="herohp"><img class="icons" id="heartIcons" src="assets/images/heart_black.png" width="24px" />: 180</h3>
+                            <h3 class="herohp"><img class="icons" src="assets/images/sword_black.png" width="24px" />: 9 - 11</h3>
+                            <h3 class="herohp"><img class="icons" src="assets/images/shield_black.png" width="24px" />: 2</h3>
+                        
+                        </div>
                     </button>
           
                     <button id="button-clear" class="btn btn-default clear" value="clear"><h3>Reset</h3></button>
@@ -84,6 +112,9 @@
                 <div class="panel-heading text-center">
                     <h3 class="panel-title">Duel</h3>
                 </div>
+
+                        <div class="popContainer"> 
+                        </div>
                          
                 <div class="panel-body bottom-panel">
                     <img id="selectedHero" src="" />
@@ -93,6 +124,8 @@
                     <img id="selectedEnemy" src="" />
                     <h3 id="enemyName"></h3>
                     <button type="button" class="btn btn-danger">   <h3 id="attack"></h3></button>
+
+                        
 
                 </div>
             </div>
