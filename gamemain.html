@@ -51,9 +51,9 @@
                         <img src="assets/images/obiwan.jpg" width="205" class="heroimg"/>
                         
                         <div class="iconwrapper">
-                            <h3 class="herohp"><img class="icons" id="heartIcons" src="assets/images/heart_black.png" width="24px" />: 120</h3>
-                            <h3 class="herohp"><img class="icons" src="assets/images/sword_black.png" width="24px" />: 8 - 10</h3>
-                            <h3 class="herohp"><img class="icons" src="assets/images/shield_black.png" width="24px" />: 4</h3>
+                            <h3 class="herohp"><img class="icons heartIcons" src="assets/images/heart_black.png" width="24px" />: 120</h3>
+                            <h3 class="herohp"><img class="icons swordIcons" src="assets/images/sword_black.png" width="24px" />: 8 - 10</h3>
+                            <h3 class="herohp"><img class="icons shieldIcons" src="assets/images/shield_black.png" width="24px" />: 4</h3>
                         </div>
                         
                     </button>
@@ -63,9 +63,9 @@
                         <img src="assets/images/luke.png" width="190" />
                         
                         <div class="iconwrapper">
-                            <h3 class="herohp"><img class="icons" id="heartIcons" src="assets/images/heart_black.png" width="24px" />: 100</h3>
-                            <h3 class="herohp"><img class="icons" src="assets/images/sword_black.png" width="24px" />: 6 - 8</h3>
-                            <h3 class="herohp"><img class="icons" src="assets/images/shield_black.png" width="24px" />: 6</h3>
+                            <h3 class="herohp"><img class="icons heartIcons" src="assets/images/heart_black.png" width="24px" />: 100</h3>
+                            <h3 class="herohp"><img class="icons swordIcons" src="assets/images/sword_black.png" width="24px" />: 6 - 8</h3>
+                            <h3 class="herohp"><img class="icons shieldIcons" src="assets/images/shield_black.png" width="24px" />: 6</h3>
                         </div>
 
                     </button>
@@ -75,9 +75,9 @@
                         <img src="assets/images/sidious.png" width="190" />
                         
                         <div class="iconwrapper">
-                            <h3 class="herohp"><img class="icons" id="heartIcons" src="assets/images/heart_black.png" width="24px" />: 150</h3>
-                            <h3 class="herohp"><img class="icons" src="assets/images/sword_black.png" width="24px" />: 10 - 13</h3>
-                            <h3 class="herohp"><img class="icons" src="assets/images/shield_black.png" width="24px" />: 0</h3>
+                            <h3 class="herohp"><img class="icons heartIcons" src="assets/images/heart_black.png" width="24px" />: 150</h3>
+                            <h3 class="herohp"><img class="icons swordIcons" src="assets/images/sword_black.png" width="24px" />: 10 - 13</h3>
+                            <h3 class="herohp"><img class="icons shieldIcons" src="assets/images/shield_black.png" width="24px" />: 0</h3>
                         
                         </div>
 
@@ -88,9 +88,9 @@
                         <img src="assets/images/maul.jpeg" width="205" />
                         
                         <div class="iconwrapper">
-                            <h3 class="herohp"><img class="icons" id="heartIcons" src="assets/images/heart_black.png" width="24px" />: 180</h3>
-                            <h3 class="herohp"><img class="icons" src="assets/images/sword_black.png" width="24px" />: 9 - 11</h3>
-                            <h3 class="herohp"><img class="icons" src="assets/images/shield_black.png" width="24px" />: 2</h3>
+                            <h3 class="herohp"><img class="icons heartIcons" src="assets/images/heart_black.png" width="24px" />: 180</h3>
+                            <h3 class="herohp"><img class="icons swordIcons" src="assets/images/sword_black.png" width="24px" />: 9 - 11</h3>
+                            <h3 class="herohp"><img class="icons shieldIcons" src="assets/images/shield_black.png" width="24px" />: 2</h3>
                         
                         </div>
                     </button>
@@ -117,15 +117,65 @@
                         </div>
                          
                 <div class="panel-body bottom-panel">
-                    <img id="selectedHero" src="" />
-                    <h3 id="heroName"></h3>
-                    <h3 id="vs"></h3>
-                    <br />
-                    <img id="selectedEnemy" src="" />
-                    <h3 id="enemyName"></h3>
-                    <button type="button" class="btn btn-danger">   <h3 id="attack"></h3></button>
+                    
+                    <div class="container">
+
+                        <div class="row">
+                        
+                            <div class="col-lg-6 duel-middle">
+                                <img id="selectedHero" src="" />
+                                <h3 id="heroName"></h3>
+                            </div>
+
+                            <div class="col-lg-2">
+
+                                <img class='icons duelHeartIcons text-center' width='24px' src='assets/images/heart_black.png'/> 
+                                <h3 class="herohp duelHp"></h3>
+                                <img class='icons duelSwordIcons text-center' width='24px' src='assets/images/sword_black.png'/>
+                                <h3 class="herohp duelAttack"></h3>
+                                <img class='icons duelShieldIcons text-center' width='24px' src='assets/images/shield_black.png'/>
+                                <h3 class="herohp duelShield"></h3>
+                            
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6 duel-middle">
+                                <h3 id="vs"></h3>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <button type="button" class="btn btn-danger text-center">   <h3 id="attack"></h3></button>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6 duel-middle">
+                                <img id="selectedEnemy" src="" />
+                                <h3 id="enemyName"></h3>
+                            </div>
+
+                            <div class="col-lg-2">
+
+                                <img class='icons compHeartIcons text-center' width='24px' src='assets/images/heart_black.png'/> 
+                                <h3 class="herohp compHp"></h3>
+                                <img class='icons compSwordIcons text-center' width='24px' src='assets/images/sword_black.png'/>
+                                <h3 class="herohp compAttack"></h3>
+                                <img class='icons compShieldIcons text-center' width='24px' src='assets/images/shield_black.png'/>
+                                <h3 class="herohp compShield"></h3>
+                            
+                            </div>
+
+
+                        </div>
+
 
                         
+
+                        
+                    </div>
 
                 </div>
             </div>
@@ -139,7 +189,7 @@
 
 <script>
     var audio = document.getElementById("duel");
-    audio.volume = 0.5;
+    audio.volume = 0.3;
     audio.currentTime = 24;
 </script>
 

@@ -72,6 +72,12 @@ $(document).ready(function(){
     fx.play();
     };
 
+    function saber() {
+    fx = new Audio();
+    fx.src = "assets/sounds/light_saber.wav";
+    fx.play();
+    };
+
     function heroSelect() {
 
         $("#heroName").html("Player: " + hero); 
@@ -87,19 +93,22 @@ $(document).ready(function(){
 
         $("#enemyName").text("Enemy: " + hero);
         $(".hero-button").prop("disabled",true);
-        $("#selectedEnemy").css({"border": "4px solid red", "border-radius": "10px"});
-        $(".btn-danger").css("display", "inline")
-        $("#attack").text("Attack");
+        $("#selectedEnemy").css({"border": "4px solid #D9534F", "border-radius": "10px"});
+        setTimeout( function(){
+            $(".btn-danger").css("display", "inline")
+            $("#attack").text("Attack");
+            $(".actionBox").css("display", "inline")
+        }, 4000);
         counter++;
 
     };
 
     function iconInverse(){
 
-        $("#heartIcons").attr("src", "assets/images/heart.png");
-        $("#swordIcons").attr("src", "assets/images/sword.png");
-        $("#shieldIcons").attr("src", "assets/images/shield.png");
-    }
+        $(".heartIcons").attr({"src": "assets/images/heart.png"});
+        $(".swordIcons").attr("src", "assets/images/sword.png");
+        $(".shieldIcons").attr("src", "assets/images/shield.png");
+    };
 
     function heroPop(){
 
@@ -108,138 +117,33 @@ $(document).ready(function(){
         setTimeout( function(){
            $(".popContainer").empty();
            $(".hero-button").prop("disabled",false);
-           console.log(counter);
+           $(selection).prop("disabled",true);
         
-        }, 3200)};
+        }, 4000)};
 
     function fightAction() {
 
         if (player1 === "Obi-Wan Kenobi" && hero === "Luke Skywalker") {
             
+            saber();
+            setTimeout( function(){
             p1Attack = p1Attack + (Math.floor(Math.random() * 2) + 8);
             compAttack = ((Math.floor(Math.random() * 2) + 6) - p1Armor);
             p1Hp = p1Hp - compAttack;
             compHp = compHp - p1Attack;
 
+
             alert("You hit for " + p1Attack + "!");
-            alert(hero + " counterattacks for " + compAttack + "!")
-            alert("Your HP is " + p1Hp + " .")
-            alert(hero + "'s HP is " + compHp + " .")
-        }
-    }
+            alert(hero + " counterattacks for " + compAttack + "!");
+            alert("Your HP is " + p1Hp + " .");
+            $(".duelHp").html(p1Hp);
+            alert(hero + "'s HP is " + compHp + " .");
+            $(".compHp").html(compHp);
+            }, 400)};
+    };
     
 
-    //     else if (hero === "Obi-Wan Kenobi" && counter === 1) {
-
-    //         enemySelect();
-            
-    //         $("#selectedEnemy").attr({"src": "assets/images/obiwan.jpg", "width": "200"});
-    //         $(".popContainer").append('<img id="pop" src="" />');
-    //         $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/obiwan.jpg", "width": "55%"}); 
-        
-    //         heroPop();
-    //         obiTalk();
-    //         scrollWin();
-      
-    //     }
-       
-
-    //     if (hero === "Luke Skywalker" && counter === 0) {
-        
-    //     heroSelect();
-    //     lukeTalk();
-
-    //     $("#selectedHero").attr({"src": "assets/images/luke.png", "width": "200"});
-    //     $("[value='Obi-Wan Kenobi']").css({"background-color": "red", "color": "white"});
-    //     $("[value='Darth Sidious']").css({"background-color": "red", "color": "white"});
-    //     $("[value='Darth Maul']").css({"background-color": "red", "color": "white"});
-    //     $(".popContainer").append('<img id="pop" src="" />');
-    //     $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/luke.png", "width": "55%"}); 
-       
-    //     heroPop();
-    //     iconInverse();
-    //     scrollWin();
-    //     }
-
-    //     else if (hero === "Luke Skywalker" && counter === 1) {
-            
-    //         enemySelect();
-    //         $("#selectedEnemy").attr({"src": "assets/images/luke.png", "width": "200"});
-    //         $(".popContainer").append('<img id="pop" src="" />');
-    //         $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/luke.png", "width": "55%"}); 
-        
-    //         heroPop();
-    //         lukeTalk();
-    //         scrollWin();
-
-    //          console.log("luke" + counter);
- 
-    //     }
-        
-
-        
-    //     if (hero === "Darth Sidious" && counter === 0) {
-        
-    //     heroSelect();
-    //     sidiousTalk();
-
-    //     $("#selectedHero").attr({"src": "assets/images/sidious.png", "width": "200"});  
-    //     $("[value='Luke Skywalker']").css({"background-color": "red", "color": "white"});
-    //     $("[value='Obi-Wan Kenobi']").css({"background-color": "red", "color": "white"});
-    //     $("[value='Darth Maul']").css({"background-color": "red", "color": "white"});
-    //     $(".popContainer").append('<img id="pop" src="" />');
-    //     $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/sidious.png", "width": "55%"}); 
-       
-    //     heroPop();
-    //     iconInverse();
-    //     scrollWin();
-    //     }
-
-    //     else if (hero === "Darth Sidious" && counter === 1) {
-
-    //         enemySelect();
-    //         $("#selectedEnemy").attr({"src": "assets/images/sidious.png", "width": "200"});
-    //         $(".popContainer").append('<img id="pop" src="" />');
-    //         $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/sidious.png", "width": "55%"}); 
-        
-    //         sidiousTalk();
-    //         heroPop();
-    //         scrollWin();
     
-    //     }
-        
-    //     if (hero === "Darth Maul" && counter === 0) {
-        
-    //     heroSelect();
-    //     maulTalk();
-
-    //     $("#selectedHero").attr({"src": "assets/images/maul.jpeg", "width": "200"});
-    //     $("[value='Luke Skywalker']").css({"background-color": "red", "color": "white"});
-    //     $("[value='Darth Sidious']").css({"background-color": "red", "color": "white"});
-    //     $("[value='Obi-Wan Kenobi']").css({"background-color": "red", "color": "white"});
-    //     $(".popContainer").append('<img id="pop" src="" />');
-    //     $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/maul.jpeg", "width": "55%"}); 
-
-       
-    //     heroPop();
-        
-    //     iconInverse();
-    //     scrollWin();
-    //     }
-
-    //     else if (hero === "Darth Maul" && counter === 1) {
-
-    //         enemySelect();
-    //         $("#selectedEnemy").attr({"src": "assets/images/maul.jpeg", "width": "200"});
-    //         $(".popContainer").append('<img id="pop" src="" />');
-    //         $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/maul.jpeg", "width": "55%"}); 
-
-    //         maulTalk();
-    //         heroPop();
-    //         scrollWin();
-    //     }
-    // }
-
 
     
     
@@ -256,14 +160,20 @@ $(document).ready(function(){
         heroSelect();
         obiTalk();
         $("#selectedHero").attr({"src": "assets/images/obiwan.jpg", "width": "200"});
-        $("[value='Luke Skywalker']").css({"background-color": "red", "color": "white"});
-        $("[value='Darth Sidious']").css({"background-color": "red", "color": "white"});
-        $("[value='Darth Maul']").css({"background-color": "red", "color": "white"});
+        $("[value='Luke Skywalker']").css({"background-color": "#D9534F", "color": "white"});
+        $("[value='Darth Sidious']").css({"background-color": "#D9534F", "color": "white"});
+        $("[value='Darth Maul']").css({"background-color": "#D9534F", "color": "white"});
         $(".popContainer").append('<img id="pop" src="" />');
         $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/obiwan.jpg", "width": "55%"}); 
         heroPop();
         iconInverse();
         scrollWin();
+        $(".duelHeartIcons").css("display", "inline");
+        $(".duelSwordIcons").css("display", "inline");
+        $(".duelShieldIcons").css("display", "inline");
+        $(".duelHp").html("120");
+        $(".duelAttack").html("8 - 10");
+        $(".duelShield").html("4");
         p1Hp = 120;
         p1Armor = 4;
         }
@@ -279,6 +189,15 @@ $(document).ready(function(){
             heroPop();
             obiTalk();
             scrollWin();
+            $(".compHeartIcons").css("display", "inline");
+            $(".compSwordIcons").css("display", "inline");
+            $(".compShieldIcons").css("display", "inline");
+            $(".compHeartIcons").html(": 120");
+            $(".compSwordIcons").html(": 8 - 10");
+            $(".compShieldIcons").html(": 4");
+            $(".compHp").html("120");
+            $(".compAttack").html("8 - 10");
+            $(".compShield").html("4");
             compHp = 120;
             compArmor = 4;
       
@@ -291,15 +210,21 @@ $(document).ready(function(){
         lukeTalk();
 
         $("#selectedHero").attr({"src": "assets/images/luke.png", "width": "200"});
-        $("[value='Obi-Wan Kenobi']").css({"background-color": "red", "color": "white"});
-        $("[value='Darth Sidious']").css({"background-color": "red", "color": "white"});
-        $("[value='Darth Maul']").css({"background-color": "red", "color": "white"});
+        $("[value='Obi-Wan Kenobi']").css({"background-color": "#D9534F", "color": "white"});
+        $("[value='Darth Sidious']").css({"background-color": "#D9534F", "color": "white"});
+        $("[value='Darth Maul']").css({"background-color": "#D9534F", "color": "white"});
         $(".popContainer").append('<img id="pop" src="" />');
         $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/luke.png", "width": "55%"}); 
        
         heroPop();
         iconInverse();
         scrollWin();
+        $(".duelHeartIcons").attr("src", "assets/images/heart_black.png");
+        $(".duelSwordIcons").attr("src", "assets/images/sword_black.png");
+        $(".duelShieldIcons").attr("src", "assets/images/shield_black.png");
+        $(".duelHp").html("100");
+        $(".duelAttack").html("6 - 8");
+        $(".duelShield").html("6");
         p1Hp = 100;
         p1Armor = 6;
         }
@@ -314,6 +239,12 @@ $(document).ready(function(){
             heroPop();
             lukeTalk();
             scrollWin();
+            $(".compHeartIcons").attr("src", "assets/images/heart_black.png");
+            $(".compSwordIcons").attr("src", "assets/images/sword_black.png");
+            $(".compShieldIcons").attr("src", "assets/images/shield_black.png");
+            $(".compHp").html("100");
+            $(".compAttack").html("6 - 8");
+            $(".compShield").html("6");  
             compHp = 100;
             compArmor = 6;
 
@@ -329,15 +260,21 @@ $(document).ready(function(){
         sidiousTalk();
 
         $("#selectedHero").attr({"src": "assets/images/sidious.png", "width": "200"});  
-        $("[value='Luke Skywalker']").css({"background-color": "red", "color": "white"});
-        $("[value='Obi-Wan Kenobi']").css({"background-color": "red", "color": "white"});
-        $("[value='Darth Maul']").css({"background-color": "red", "color": "white"});
+        $("[value='Luke Skywalker']").css({"background-color": "#D9534F", "color": "white"});
+        $("[value='Obi-Wan Kenobi']").css({"background-color": "#D9534F", "color": "white"});
+        $("[value='Darth Maul']").css({"background-color": "#D9534F", "color": "white"});
         $(".popContainer").append('<img id="pop" src="" />');
         $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/sidious.png", "width": "55%"}); 
        
         heroPop();
         iconInverse();
         scrollWin();
+        $(".duelHeartIcons").attr("src", "assets/images/heart_black.png");
+        $(".duelSwordIcons").attr("src", "assets/images/sword_black.png");
+        $(".duelShieldIcons").attr("src", "assets/images/shield_black.png");
+        $(".duelHp").html("150");
+        $(".duelAttack").html("10 - 13");
+        $(".duelShield").html("0");
         p1Hp = 150;
         p1Armor = 0;
         }
@@ -352,6 +289,12 @@ $(document).ready(function(){
             sidiousTalk();
             heroPop();
             scrollWin();
+            $(".compHeartIcons").attr("src", "assets/images/heart_black.png");
+            $(".compSwordIcons").attr("src", "assets/images/sword_black.png");
+            $(".compShieldIcons").attr("src", "assets/images/shield_black.png");
+            $(".compHp").html("150");
+            $(".compAttack").html("10 - 13");
+            $(".compShield").html("0");
             compHp = 150;
             compArmor = 0;
     
@@ -363,9 +306,9 @@ $(document).ready(function(){
         maulTalk();
 
         $("#selectedHero").attr({"src": "assets/images/maul.jpeg", "width": "200"});
-        $("[value='Luke Skywalker']").css({"background-color": "red", "color": "white"});
-        $("[value='Darth Sidious']").css({"background-color": "red", "color": "white"});
-        $("[value='Obi-Wan Kenobi']").css({"background-color": "red", "color": "white"});
+        $("[value='Luke Skywalker']").css({"background-color": "#D9534F", "color": "white"});
+        $("[value='Darth Sidious']").css({"background-color": "#D9534F", "color": "white"});
+        $("[value='Obi-Wan Kenobi']").css({"background-color": "#D9534F", "color": "white"});
         $(".popContainer").append('<img id="pop" src="" />');
         $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/maul.jpeg", "width": "55%"}); 
 
@@ -374,6 +317,12 @@ $(document).ready(function(){
         
         iconInverse();
         scrollWin();
+        $(".duelHeartIcons").attr("src", "assets/images/heart_black.png");
+        $(".duelSwordIcons").attr("src", "assets/images/sword_black.png");
+        $(".duelShieldIcons").attr("src", "assets/images/shield_black.png");
+        $(".duelHp").html("180");
+        $(".duelAttack").html("9 - 11");
+        $(".duelShield").html("2");
         p1Hp = 180;
         p1Armor = 2;
         }
@@ -388,6 +337,12 @@ $(document).ready(function(){
             maulTalk();
             heroPop();
             scrollWin();
+            $(".compHeartIcons").attr("src", "assets/images/heart_black.png");
+            $(".compSwordIcons").attr("src", "assets/images/sword_black.png");
+            $(".compShieldIcons").attr("src", "assets/images/shield_black.png");
+            $(".compHp").html("180");
+            $(".compAttack").html("9 - 11");
+            $(".compShield").html("2");
             compHp = 180;
             compArmor = 2;
         }
@@ -404,11 +359,19 @@ $(document).ready(function(){
 
     $(".btn-danger").on("click", function () {
 
-        fightAction();
+        if (duelHp > 0 && compHp > 0) { 
 
-        console.log("attack!");
-        console.log(hero);
-        console.log(player1);
+            fightAction();
+
+        }
+
+        else {
+
+            $(".btn-button").prop("disabled",true);
+
+        }
+
+
     });
     
     
