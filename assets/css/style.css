@@ -163,7 +163,10 @@ body {
 
 .duelHeartIcons,
 .duelSwordIcons,
-.duelShieldIcons {
+.duelShieldIcons,
+.compHeartIcons,
+.compSwordIcons,
+.compShieldIcons {
 
 
 	display: none;

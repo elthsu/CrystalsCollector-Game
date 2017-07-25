@@ -1,21 +1,15 @@
 
 
-$(document).ready(function(){
+    $(document).ready(function(){
  
     // VARIABLES
     // ==========================================================================
-    // var inputOne = "";
-    // var operator;
-    // var inputTwo = "";
-    // var output = ""; 
-    // var counter = 1;
-    // var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    // var operatorArray = ["+", "-", "*", "/", "^"];
 
     var sound = document.getElementById("audio");
     var hero;
     var selection;
     var player1;
+    var prevHero;
     var fx;
     var counter = 0;
     var p1Attack = 0;
@@ -115,8 +109,59 @@ $(document).ready(function(){
        
         $(".hero-button").prop("disabled",true);
         setTimeout( function(){
-           $(".popContainer").empty();
-           $(".hero-button").prop("disabled",false);
+            
+            $(".popContainer").empty();
+            
+            if (counter === 1) {
+                
+                console.log("1hero" + hero);
+                console.log("player1" + player1);
+                console.log("prevHero" + prevHero);
+
+            $(".hero-button").prop("disabled",false)
+            $("[value=hero]").prop("disabled",true);
+
+            };
+            
+            if (counter === 2) {
+                console.log("2hero" + hero);
+                console.log("player1" + player1);
+                console.log("prevHero" + prevHero);
+
+            $("[value=player1]").prop("disabled",true);
+            $("[value=hero]").prop("disabled",true);
+
+            }
+
+            if (counter === 3)  {
+            
+                console.log("3hero" + hero);
+                console.log("player1" + player1);
+                console.log("prevHero" + prevHero);
+
+            $(".hero-button").prop("disabled",false);
+            
+            setTimeout( function(){
+            $("[value=player1]").prop("disabled",true);
+            $("[value=hero]").prop("disabled",true);
+            }, 100);
+            
+
+            }
+
+            if (counter === 4)  {
+            $(".hero-button").prop("disabled",false);
+            $("[value=player1]").prop("disabled",true);
+            $("[value=hero]").prop("disabled",true);
+            $("[value=prevHero]").prop("disabled",true);
+            }
+            
+            if (counter > 4) {
+            $(".hero-button").prop("disabled",true);
+            }
+
+            
+
            $(selection).prop("disabled",true);
         
         }, 4000)};
@@ -126,12 +171,16 @@ $(document).ready(function(){
         if (player1 === "Obi-Wan Kenobi" && hero === "Luke Skywalker") {
             
             saber();
+            
             setTimeout( function(){
             p1Attack = p1Attack + (Math.floor(Math.random() * 2) + 8);
             compAttack = ((Math.floor(Math.random() * 2) + 6) - p1Armor);
             p1Hp = p1Hp - compAttack;
             compHp = compHp - p1Attack;
+            if (compHp <= 0) {
 
+            defeatedHero();
+            }
 
             alert("You hit for " + p1Attack + "!");
             alert(hero + " counterattacks for " + compAttack + "!");
@@ -139,8 +188,313 @@ $(document).ready(function(){
             $(".duelHp").html(p1Hp);
             alert(hero + "'s HP is " + compHp + " .");
             $(".compHp").html(compHp);
-            }, 400)};
+            }, 400)
+                
+            
+    
+            };
+
+        if (player1 === "Obi-Wan Kenobi" && hero === "Darth Sidious") {
+            
+            saber();
+            
+            setTimeout( function(){
+            p1Attack = p1Attack + (Math.floor(Math.random() * 2) + 8);
+            compAttack = ((Math.floor(Math.random() * 3) + 10) - p1Armor);
+            p1Hp = p1Hp - compAttack;
+            compHp = compHp - p1Attack;
+            if (compHp <= 0) {
+
+            defeatedHero();
+            }
+
+            alert("You hit for " + p1Attack + "!");
+            alert(hero + " counterattacks for " + compAttack + "!");
+            alert("Your HP is " + p1Hp + " .");
+            $(".duelHp").html(p1Hp);
+            alert(hero + "'s HP is " + compHp + " .");
+            $(".compHp").html(compHp);
+            }, 400)
+                
+            
+    
+            };
+
+        if (player1 === "Obi-Wan Kenobi" && hero === "Darth Maul") {
+            
+            saber();
+            
+            setTimeout( function(){
+            p1Attack = p1Attack + (Math.floor(Math.random() * 2) + 8);
+            compAttack = ((Math.floor(Math.random() * 2) + 9) - p1Armor);
+            p1Hp = p1Hp - compAttack;
+            compHp = compHp - p1Attack;
+            if (compHp <= 0) {
+
+            defeatedHero();
+            }
+
+            alert("You hit for " + p1Attack + "!");
+            alert(hero + " counterattacks for " + compAttack + "!");
+            alert("Your HP is " + p1Hp + " .");
+            $(".duelHp").html(p1Hp);
+            alert(hero + "'s HP is " + compHp + " .");
+            $(".compHp").html(compHp);
+            }, 400)
+                
+            
+    
+            };
+
+        if (player1 === "Luke Skywalker" && hero === "Obi-Wan Kenobi") {
+            
+            saber();
+            
+            setTimeout( function(){
+            p1Attack = p1Attack + (Math.floor(Math.random() * 2) + 6);
+            compAttack = ((Math.floor(Math.random() * 2) + 8) - p1Armor);
+            p1Hp = p1Hp - compAttack;
+            compHp = compHp - p1Attack;
+            if (compHp <= 0) {
+
+            defeatedHero();
+            }
+
+            alert("You hit for " + p1Attack + "!");
+            alert(hero + " counterattacks for " + compAttack + "!");
+            alert("Your HP is " + p1Hp + " .");
+            $(".duelHp").html(p1Hp);
+            alert(hero + "'s HP is " + compHp + " .");
+            $(".compHp").html(compHp);
+            }, 400)
+                
+            
+    
+            };
+
+        if (player1 === "Luke Skywalker" && hero === "Darth Sidious") {
+            
+            saber();
+            
+            setTimeout( function(){
+            p1Attack = p1Attack + (Math.floor(Math.random() * 2) + 6);
+            compAttack = ((Math.floor(Math.random() * 3) + 10) - p1Armor);
+            p1Hp = p1Hp - compAttack;
+            compHp = compHp - p1Attack;
+            if (compHp <= 0) {
+
+            defeatedHero();
+            }
+
+            alert("You hit for " + p1Attack + "!");
+            alert(hero + " counterattacks for " + compAttack + "!");
+            alert("Your HP is " + p1Hp + " .");
+            $(".duelHp").html(p1Hp);
+            alert(hero + "'s HP is " + compHp + " .");
+            $(".compHp").html(compHp);
+            }, 400)
+                
+            
+    
+            };
+
+        if (player1 === "Luke Skywalker" && hero === "Darth Maul") {
+            
+            saber();
+            
+            setTimeout( function(){
+            p1Attack = p1Attack + (Math.floor(Math.random() * 2) + 6);
+            compAttack = ((Math.floor(Math.random() * 2) + 9) - p1Armor);
+            p1Hp = p1Hp - compAttack;
+            compHp = compHp - p1Attack;
+            if (compHp <= 0) {
+
+            defeatedHero();
+            }
+
+            alert("You hit for " + p1Attack + "!");
+            alert(hero + " counterattacks for " + compAttack + "!");
+            alert("Your HP is " + p1Hp + " .");
+            $(".duelHp").html(p1Hp);
+            alert(hero + "'s HP is " + compHp + " .");
+            $(".compHp").html(compHp);
+            }, 400)
+                
+            
+    
+            };
+
+        if (player1 === "Darth Sidious" && hero === "Luke Skywalker") {
+            
+            saber();
+            
+            setTimeout( function(){
+            p1Attack = p1Attack + (Math.floor(Math.random() * 3) + 10);
+            compAttack = ((Math.floor(Math.random() * 2) + 6) - p1Armor);
+            p1Hp = p1Hp - compAttack;
+            compHp = compHp - p1Attack;
+            if (compHp <= 0) {
+
+            defeatedHero();
+            }
+
+            alert("You hit for " + p1Attack + "!");
+            alert(hero + " counterattacks for " + compAttack + "!");
+            alert("Your HP is " + p1Hp + " .");
+            $(".duelHp").html(p1Hp);
+            alert(hero + "'s HP is " + compHp + " .");
+            $(".compHp").html(compHp);
+            }, 400)
+                
+            
+    
+            };
+
+        if (player1 === "Darth Sidious" && hero === "Obi-Wan Kenobi") {
+            
+            saber();
+            
+            setTimeout( function(){
+            p1Attack = p1Attack + (Math.floor(Math.random() * 3) + 10);
+            compAttack = ((Math.floor(Math.random() * 2) + 8) - p1Armor);
+            p1Hp = p1Hp - compAttack;
+            compHp = compHp - p1Attack;
+            if (compHp <= 0) {
+
+            defeatedHero();
+            }
+
+            alert("You hit for " + p1Attack + "!");
+            alert(hero + " counterattacks for " + compAttack + "!");
+            alert("Your HP is " + p1Hp + " .");
+            $(".duelHp").html(p1Hp);
+            alert(hero + "'s HP is " + compHp + " .");
+            $(".compHp").html(compHp);
+            }, 400)
+                
+            
+    
+            };
+        if (player1 === "Darth Sidious" && hero === "Darth Maul") {
+            
+            saber();
+            
+            setTimeout( function(){
+            p1Attack = p1Attack + (Math.floor(Math.random() * 3) + 10);
+            compAttack = ((Math.floor(Math.random() * 2) + 9) - p1Armor);
+            p1Hp = p1Hp - compAttack;
+            compHp = compHp - p1Attack;
+            if (compHp <= 0) {
+
+            defeatedHero();
+            }
+
+            alert("You hit for " + p1Attack + "!");
+            alert(hero + " counterattacks for " + compAttack + "!");
+            alert("Your HP is " + p1Hp + " .");
+            $(".duelHp").html(p1Hp);
+            alert(hero + "'s HP is " + compHp + " .");
+            $(".compHp").html(compHp);
+            }, 400)
+                
+            
+    
+            };
+        if (player1 === "Darth Maul" && hero === "Obi-Wan Kenobi") {
+            
+            saber();
+            
+            setTimeout( function(){
+            p1Attack = p1Attack + (Math.floor(Math.random() * 2) + 9);
+            compAttack = ((Math.floor(Math.random() * 2) + 8) - p1Armor);
+            p1Hp = p1Hp - compAttack;
+            compHp = compHp - p1Attack;
+            if (compHp <= 0) {
+
+            defeatedHero();
+            }
+
+            alert("You hit for " + p1Attack + "!");
+            alert(hero + " counterattacks for " + compAttack + "!");
+            alert("Your HP is " + p1Hp + " .");
+            $(".duelHp").html(p1Hp);
+            alert(hero + "'s HP is " + compHp + " .");
+            $(".compHp").html(compHp);
+            }, 400)
+                
+            
+    
+            };
+        if (player1 === "Darth Maul" && hero === "Luke Skywalker") {
+            
+            saber();
+            
+            setTimeout( function(){
+            p1Attack = p1Attack + (Math.floor(Math.random() * 2) + 9);
+            compAttack = ((Math.floor(Math.random() * 2) + 6) - p1Armor);
+            p1Hp = p1Hp - compAttack;
+            compHp = compHp - p1Attack;
+            if (compHp <= 0) {
+
+            defeatedHero();
+            }
+
+            alert("You hit for " + p1Attack + "!");
+            alert(hero + " counterattacks for " + compAttack + "!");
+            alert("Your HP is " + p1Hp + " .");
+            $(".duelHp").html(p1Hp);
+            alert(hero + "'s HP is " + compHp + " .");
+            $(".compHp").html(compHp);
+            }, 400)
+                
+            
+    
+            };
+        if (player1 === "Darth Maul" && hero === "Darth Sidious") {
+            
+            saber();
+            
+            setTimeout( function(){
+            p1Attack = p1Attack + (Math.floor(Math.random() * 2) + 9);
+            compAttack = ((Math.floor(Math.random() * 3) + 10) - p1Armor);
+            p1Hp = p1Hp - compAttack;
+            compHp = compHp - p1Attack;
+            if (compHp <= 0) {
+
+            defeatedHero();
+            }
+
+            alert("You hit for " + p1Attack + "!");
+            alert(hero + " counterattacks for " + compAttack + "!");
+            alert("Your HP is " + p1Hp + " .");
+            $(".duelHp").html(p1Hp);
+            alert(hero + "'s HP is " + compHp + " .");
+            $(".compHp").html(compHp);
+            }, 400)
+                
+            
+    
+            };
+
     };
+
+    function defeatedHero() {
+
+
+        
+        $("[value=hero]").prop("disabled",true);
+        $(selection).css({"background-color": "grey", "color": "lightgrey", "opacity": "0.2"});
+        alert(hero + " has been defeated!")
+        counter++;
+        
+        // if (counter > 4) {
+        // $("[value!=hero]").prop("disabled",false);
+        // $("[value=player1]").prop("disabled",true);
+        // $("[value=hero]").prop("disabled",true);
+        // $("[value=prevHero]").prop("disabled",true);
+        // }
+
+    }
     
 
     
@@ -192,6 +546,28 @@ $(document).ready(function(){
             $(".compHeartIcons").css("display", "inline");
             $(".compSwordIcons").css("display", "inline");
             $(".compShieldIcons").css("display", "inline");
+            $(".compHp").html("120");
+            $(".compAttack").html("8 - 10");
+            $(".compShield").html("4");
+            compHp = 120;
+            compArmor = 4;
+      
+        }
+
+        else if (hero === "Obi-Wan Kenobi" && counter >= 2) {
+
+            
+            prevHero = hero;
+
+            enemySelect();
+            
+            $("#selectedEnemy").attr({"src": "assets/images/obiwan.jpg", "width": "200"});
+            $(".popContainer").append('<img id="pop" src="" />');
+            $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/obiwan.jpg", "width": "55%"}); 
+        
+            heroPop();
+            obiTalk();
+            scrollWin();
             $(".compHeartIcons").html(": 120");
             $(".compSwordIcons").html(": 8 - 10");
             $(".compShieldIcons").html(": 4");
@@ -219,9 +595,9 @@ $(document).ready(function(){
         heroPop();
         iconInverse();
         scrollWin();
-        $(".duelHeartIcons").attr("src", "assets/images/heart_black.png");
-        $(".duelSwordIcons").attr("src", "assets/images/sword_black.png");
-        $(".duelShieldIcons").attr("src", "assets/images/shield_black.png");
+        $(".duelHeartIcons").css("display", "inline");
+        $(".duelSwordIcons").css("display", "inline");
+        $(".duelShieldIcons").css("display", "inline");
         $(".duelHp").html("100");
         $(".duelAttack").html("6 - 8");
         $(".duelShield").html("6");
@@ -239,9 +615,9 @@ $(document).ready(function(){
             heroPop();
             lukeTalk();
             scrollWin();
-            $(".compHeartIcons").attr("src", "assets/images/heart_black.png");
-            $(".compSwordIcons").attr("src", "assets/images/sword_black.png");
-            $(".compShieldIcons").attr("src", "assets/images/shield_black.png");
+            $(".compHeartIcons").css("display", "inline");
+            $(".compSwordIcons").css("display", "inline");
+            $(".compShieldIcons").css("display", "inline");
             $(".compHp").html("100");
             $(".compAttack").html("6 - 8");
             $(".compShield").html("6");  
@@ -251,6 +627,28 @@ $(document).ready(function(){
             
  
         }
+
+        else if (hero === "Luke Skywalker" && counter >= 2) {
+            
+            prevHero = hero;
+            enemySelect();
+            $("#selectedEnemy").attr({"src": "assets/images/luke.png", "width": "200"});
+            $(".popContainer").append('<img id="pop" src="" />');
+            $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/luke.png", "width": "55%"}); 
+        
+            heroPop();
+            lukeTalk();
+            scrollWin();
+            $(".compHp").html("100");
+            $(".compAttack").html("6 - 8");
+            $(".compShield").html("6");  
+            compHp = 100;
+            compArmor = 6;
+
+            
+ 
+        }
+        
         
 
         
@@ -269,9 +667,9 @@ $(document).ready(function(){
         heroPop();
         iconInverse();
         scrollWin();
-        $(".duelHeartIcons").attr("src", "assets/images/heart_black.png");
-        $(".duelSwordIcons").attr("src", "assets/images/sword_black.png");
-        $(".duelShieldIcons").attr("src", "assets/images/shield_black.png");
+        $(".duelHeartIcons").css("display", "inline");
+        $(".duelSwordIcons").css("display", "inline");
+        $(".duelShieldIcons").css("display", "inline");
         $(".duelHp").html("150");
         $(".duelAttack").html("10 - 13");
         $(".duelShield").html("0");
@@ -289,9 +687,28 @@ $(document).ready(function(){
             sidiousTalk();
             heroPop();
             scrollWin();
-            $(".compHeartIcons").attr("src", "assets/images/heart_black.png");
-            $(".compSwordIcons").attr("src", "assets/images/sword_black.png");
-            $(".compShieldIcons").attr("src", "assets/images/shield_black.png");
+            $(".compHeartIcons").css("display", "inline");
+            $(".compSwordIcons").css("display", "inline");
+            $(".compShieldIcons").css("display", "inline");
+            $(".compHp").html("150");
+            $(".compAttack").html("10 - 13");
+            $(".compShield").html("0");
+            compHp = 150;
+            compArmor = 0;
+    
+        }
+
+        else if (hero === "Darth Sidious" && counter >= 2) {
+
+            prevHero = hero;
+            enemySelect();
+            $("#selectedEnemy").attr({"src": "assets/images/sidious.png", "width": "200"});
+            $(".popContainer").append('<img id="pop" src="" />');
+            $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/sidious.png", "width": "55%"}); 
+        
+            sidiousTalk();
+            heroPop();
+            scrollWin();
             $(".compHp").html("150");
             $(".compAttack").html("10 - 13");
             $(".compShield").html("0");
@@ -317,9 +734,9 @@ $(document).ready(function(){
         
         iconInverse();
         scrollWin();
-        $(".duelHeartIcons").attr("src", "assets/images/heart_black.png");
-        $(".duelSwordIcons").attr("src", "assets/images/sword_black.png");
-        $(".duelShieldIcons").attr("src", "assets/images/shield_black.png");
+        $(".duelHeartIcons").css("display", "inline");
+        $(".duelSwordIcons").css("display", "inline");
+        $(".duelShieldIcons").css("display", "inline");
         $(".duelHp").html("180");
         $(".duelAttack").html("9 - 11");
         $(".duelShield").html("2");
@@ -337,9 +754,27 @@ $(document).ready(function(){
             maulTalk();
             heroPop();
             scrollWin();
-            $(".compHeartIcons").attr("src", "assets/images/heart_black.png");
-            $(".compSwordIcons").attr("src", "assets/images/sword_black.png");
-            $(".compShieldIcons").attr("src", "assets/images/shield_black.png");
+            $(".compHeartIcons").css("display", "inline");
+            $(".compSwordIcons").css("display", "inline");
+            $(".compShieldIcons").css("display", "inline");
+            $(".compHp").html("180");
+            $(".compAttack").html("9 - 11");
+            $(".compShield").html("2");
+            compHp = 180;
+            compArmor = 2;
+        }
+
+        else if (hero === "Darth Maul" && counter >= 2) {
+
+            prevHero = hero;
+            enemySelect();
+            $("#selectedEnemy").attr({"src": "assets/images/maul.jpeg", "width": "200"});
+            $(".popContainer").append('<img id="pop" src="" />');
+            $("#pop").attr({"class": "w3-container w3-center w3-animate-zoom", "src": "assets/images/maul.jpeg", "width": "55%"}); 
+
+            maulTalk();
+            heroPop();
+            scrollWin();
             $(".compHp").html("180");
             $(".compAttack").html("9 - 11");
             $(".compShield").html("2");
@@ -359,7 +794,7 @@ $(document).ready(function(){
 
     $(".btn-danger").on("click", function () {
 
-        if (duelHp > 0 && compHp > 0) { 
+        if (p1Hp > 0 && compHp > 0) { 
 
             fightAction();
 
@@ -373,6 +808,10 @@ $(document).ready(function(){
 
 
     });
+
+    
+
+
     
     
 
